@@ -1,0 +1,353 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11100f">
+  <meta name="description" content="Tío Charl'y — pizzas, promos y pedidos por WhatsApp en Junín.">
+  <title>Tío Charl'y | Pizzería</title>
+  <style>
+    :root {
+      --bg: #11100f; --panel: #1b1917; --panel-2: #24211e;
+      --cream: #f6eddf; --muted: #b7aa9a; --red: #c83b32;
+      --red-dark: #962b25; --gold: #e5b76c; --line: rgba(246,237,223,.12);
+      --green: #6e9b73; --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --radius: 20px; --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--cream); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topline { background: var(--red); color: white; text-align: center; padding: 8px 12px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(17,16,15,.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 950; letter-spacing: -.06em; font-size: 1.15rem; }
+    .brand-mark { width: 42px; height: 42px; border: 2px solid var(--gold); color: var(--gold); border-radius: 50%; display: grid; place-items: center; font-family: Georgia, serif; font-weight: 900; font-size: 1.25rem; }
+    .brand small { display: block; color: var(--muted); letter-spacing: .2em; font-size: .55rem; font-weight: 700; margin-top: -3px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .9rem; font-weight: 650; }
+    .nav-links a:hover { color: var(--cream); }
+    .btn { border: 0; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 19px; border-radius: 999px; background: var(--red); color: white; font-weight: 850; cursor: pointer; transition: .2s transform, .2s background; }
+    .btn:hover { transform: translateY(-2px); background: #df493e; }
+    .btn.secondary { background: transparent; border: 1px solid var(--line); color: var(--cream); }
+    .btn.secondary:hover { border-color: var(--gold); }
+    .hero { position: relative; overflow: hidden; padding: 88px 0 76px; background: radial-gradient(ellipse at 78% 35%, rgba(200,59,50,.22), transparent 38%), linear-gradient(110deg,#11100f 15%,#191512 100%); }
+    .hero:after { content: "PIZZA"; position: absolute; right: -25px; bottom: -90px; color: rgba(246,237,223,.025); font-size: clamp(9rem,24vw,21rem); font-weight: 1000; letter-spacing: -.09em; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 48px; position: relative; z-index: 1; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; font-size: .76rem; letter-spacing: .2em; font-weight: 850; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 800; letter-spacing: -.055em; line-height: .98; font-size: clamp(3.3rem,7vw,6.5rem); margin: 17px 0 22px; }
+    h1 em { color: var(--red); font-style: normal; }
+    .hero p { max-width: 510px; color: var(--muted); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-note { margin-top: 28px; display: flex; gap: 18px; flex-wrap: wrap; color: var(--muted); font-size: .82rem; }
+    .hero-note span:before { content: "•"; color: var(--gold); margin-right: 8px; }
+.hero-art { min-height: 410px; position: relative; display: grid; place-items: center; }
+     .pizza-orbit { width: min(100%,380px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(229,183,108,.25); display: grid; place-items: center; position: relative; background: radial-gradient(circle,rgba(229,183,108,.08),transparent 65%); overflow: hidden; }
+     .pizza-orbit:before,.pizza-orbit:after { content:""; position:absolute; border:1px dashed rgba(229,183,108,.18); border-radius:50%; inset: 8%; }
+     .pizza-orbit:after { inset: 17%; }
+     .hero-pizza-img { width: 88%; height: 88%; object-fit: contain; filter: drop-shadow(0 28px 25px rgba(0,0,0,.5)); transform: rotate(-13deg); }
+     .hero-pizza-img:not([src]) { background: radial-gradient(circle,rgba(229,183,108,.08),transparent 65%); }
+.floating-tag { position: absolute; z-index: 5; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px 15px; box-shadow: var(--shadow); font-size: .8rem; }
+     .floating-tag strong { display: block; color: var(--gold); font-size: 1rem; }
+     .tag-one { top: 6%; right: -10px; } .tag-two { bottom: 6%; left: -10px; }
+    section { padding: 82px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 30px; }
+    .section-head h2 { font: 800 clamp(2.2rem,4vw,3.5rem)/1 Georgia,serif; letter-spacing: -.045em; margin: 10px 0 0; }
+    .section-head p { color: var(--muted); max-width: 390px; margin: 0; }
+    .menu-section { background: #171513; }
+    .filters { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 24px; }
+    .filter { border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 9px 15px; border-radius: 99px; cursor: pointer; font-weight: 750; }
+    .filter.active,.filter:hover { background: var(--cream); color: #171513; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .food-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: .2s transform,.2s border; }
+    .food-card:hover { transform: translateY(-4px); border-color: rgba(229,183,108,.45); }
+    .food-image { height: 190px; display: grid; place-items: center; background: radial-gradient(circle at 50% 45%,#493026,#211b17 68%); overflow: hidden; }
+     .food-image img { width: 100%; height: 100%; object-fit: cover; }
+     /* Modelo 3D CSS puro — placeholder mientras no hay imagen real */
+     .model3d { width: 150px; height: 150px; position: relative; transform-style: preserve-3d; animation: spin3d 8s linear infinite; }
+     @keyframes spin3d { 0% { transform: rotateX(-18deg) rotateY(0deg); } 50% { transform: rotateX(-18deg) rotateY(180deg); } 100% { transform: rotateX(-18deg) rotateY(360deg); } }
+     .model3d .base { position: absolute; inset: 0; border-radius: 50%; }
+     /* Pizza */
+     .pizza-3d .base { background: radial-gradient(circle at 35% 30%,#d97a3a,#a84a2a 70%); box-shadow: inset 0 -12px 18px rgba(0,0,0,.35); }
+     .pizza-3d .base:before { content:""; position:absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle at 40% 35%,#e8a050,#c4682e 60%); }
+     .pizza-3d .base:after { content:""; position:absolute; inset: 28%; border-radius: 50%; background: radial-gradient(circle at 35% 30%,#f0c060,#d4843a 55%); }
+     .pizza-3d .slice { position:absolute; top: 50%; left: 50%; width: 50%; height: 4px; background: #c83b32; transform-origin: 0 0; border-radius: 2px; }
+     /* Empanada */
+     .empanada-3d { transform-style: preserve-3d; animation: spin3d 7s linear infinite; }
+     .empanada-3d .base { width: 150px; height: 110px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: radial-gradient(circle at 40% 30%,#e0a050,#b06828 70%); box-shadow: inset 0 -8px 14px rgba(0,0,0,.3); }
+     .empanada-3d .base:before { content:""; position:absolute; top: 18px; left: 30px; width: 90px; height: 3px; border-top: 2px solid rgba(0,0,0,.25); border-radius: 50%; }
+     /* Bebida */
+     .drink-3d { transform-style: preserve-3d; animation: spin3d 9s linear infinite; }
+     .drink-3d .base { width: 90px; height: 140px; background: linear-gradient(90deg,#c83b32,#e8584a,#c83b32); border-radius: 40px 40px 12px 12px; box-shadow: inset -8px 0 12px rgba(0,0,0,.25); }
+     .drink-3d .base:before { content:""; position:absolute; top: -14px; left: 50%; transform: translateX(-50%); width: 110px; height: 22px; background: #8a8a8a; border-radius: 50%; box-shadow: inset 0 -4px 6px rgba(0,0,0,.3); }
+     .drink-3d .base:after { content:""; position:absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 60px; height: 80px; background: repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 8px,transparent 8px 16px); border-radius: 6px; }
+    .food-body { padding: 19px; }
+    .food-top { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+    .food-card h3 { margin: 0; font: 750 1.35rem Georgia,serif; }
+    .price { color: var(--gold); font-weight: 900; white-space: nowrap; }
+    .food-card p { color: var(--muted); font-size: .88rem; min-height: 42px; margin: 10px 0 17px; }
+    .add { width: 100%; border: 1px solid rgba(229,183,108,.35); color: var(--cream); background: transparent; padding: 11px; border-radius: 12px; cursor: pointer; font-weight: 800; }
+    .add:hover { background: var(--red); border-color: var(--red); }
+    .promo { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 22px; padding: 30px 34px; background: linear-gradient(110deg,#8f2924,#c83b32); border-radius: var(--radius); margin-top: 28px; }
+    .promo h3 { font: 800 2rem Georgia,serif; margin: 0 0 5px; }
+    .promo p { margin: 0; color: rgba(255,255,255,.8); }
+    .promo .btn { background: var(--cream); color: #211714; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .info-card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+    .info-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(200,59,50,.15); color: var(--gold); font-size: 1.35rem; }
+     .info-icon svg { width: 26px; height: 26px; }
+    .info-card h3 { font: 750 1.55rem Georgia,serif; margin: 18px 0 8px; }
+    .info-card p { color: var(--muted); margin: 0 0 18px; }
+    .map-placeholder { min-height: 190px; border-radius: 14px; background: linear-gradient(135deg,#2d2923,#1b2420); display: grid; place-items: center; text-align: center; padding: 20px; color: var(--muted); border: 1px solid var(--line); }
+    .reviews { background: #171513; }
+.review-card { padding: 28px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+     .reviews-list { display: grid; gap: 18px; margin-bottom: 28px; }
+     .review-card .review-author { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+     .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: var(--cream); display: grid; place-items: center; font-weight: 800; font-size: 1rem; }
+     .review-card .review-name { font-weight: 750; font-size: .9rem; }
+     .review-card .review-date { color: var(--muted); font-size: .78rem; }
+     .stars { color: var(--gold); letter-spacing: .15em; font-size: 1.2rem; }
+     .review-card p { color: var(--muted); margin: 14px 0 0; }
+     .review-note { color: var(--muted); font-size: .82rem; margin-top: 16px; }
+    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .cart-fab { position: fixed; right: 22px; bottom: 22px; z-index: 30; box-shadow: var(--shadow); }
+    .cart-count { background: var(--gold); color: #211714; border-radius: 99px; min-width: 22px; height: 22px; display: inline-grid; place-items: center; font-size: .75rem; }
+    .overlay { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.65); display: none; justify-content: end; }
+    .overlay.open { display: flex; }
+    .cart-panel { width: min(440px,100%); height: 100%; background: var(--panel); padding: 26px; overflow: auto; box-shadow: var(--shadow); }
+    .cart-head { display: flex; justify-content: space-between; align-items: center; }
+    .cart-head h2 { font: 800 2rem Georgia,serif; margin: 0; }
+    .close { border: 1px solid var(--line); background: transparent; color: var(--cream); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; }
+    .cart-items { margin: 24px 0; display: grid; gap: 12px; }
+    .cart-item { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+    .cart-item small { display: block; color: var(--muted); }
+    .qty { display: flex; align-items: center; gap: 9px; }
+    .qty button { width: 27px; height: 27px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--cream); cursor: pointer; }
+    .cart-total { display: flex; justify-content: space-between; font-weight: 900; font-size: 1.2rem; padding: 16px 0; border-top: 1px solid var(--line); }
+    .field { display: grid; gap: 6px; margin: 13px 0; color: var(--muted); font-size: .85rem; }
+    .field input,.field select,.field textarea { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: #121110; color: var(--cream); font: inherit; }
+    .checkout { width: 100%; margin-top: 10px; }
+    .notice { color: var(--gold); font-size: .78rem; margin-top: 12px; }
+@media (max-width: 800px) {
+       .nav-links { display: none; } .hero-grid { grid-template-columns: 1fr; gap: 10px; } .hero { padding: 62px 0 42px; }
+       .hero-art { min-height: 300px; } .pizza-orbit { width: 280px; } .pizza-emoji { font-size: 12rem; }
+       .menu-grid { grid-template-columns: repeat(2,1fr); } .section-head { align-items: start; flex-direction: column; }
+       .tag-one { top: 4%; right: -6px; } .tag-two { bottom: 4%; left: -6px; }
+     }
+     @media (max-width: 540px) {
+       .wrap { width: min(100% - 28px,var(--max)); } .menu-grid,.info-grid { grid-template-columns: 1fr; }
+       section { padding: 62px 0; } .food-image { height: 170px; } .promo { grid-template-columns: 1fr; padding: 25px; }
+       .promo .btn { width: 100%; } .hero-actions .btn { flex: 1; } .tag-one { right: -2px; top: 2%; } .tag-two { left: -2px; bottom: 2%; }
+     }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Tío Charl'y inicio">
+        <span class="brand-mark">T</span><span>TÍO CHARL'Y<small>PIZZERÍA</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#menu">Menú</a><a href="#pedidos">Pedidos</a><a href="#ubicacion">Ubicación</a><a href="#opiniones">Opiniones</a>
+      </nav>
+      <a class="btn" href="#menu">Ver menú <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M7 17l9-9"/><path d="M7 7h9v9"/></svg></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+<div class="eyebrow">Sabor de barrio, pizza de calidad</div>
+           <h1>La pizza que<br>hace <em>calor en el corazón.</em></h1>
+           <p>Elegí tus favoritas, armá tu pedido y mandalo por WhatsApp. Nosotros nos ocupamos del resto, vos ponés el pie en el mantel.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#menu">Explorar menú <span>→</span></a>
+            <a class="btn secondary" href="#ubicacion">Cómo llegar</a>
+          </div>
+          <div class="hero-note"><span>Pedidos por WhatsApp</span><span>Delivery</span><span>Junín, Buenos Aires</span></div>
+        </div>
+<div class="hero-art" aria-label="Pizza recién hecha">
+           <div class="pizza-orbit"><img class="hero-pizza-img" id="heroPizzaImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='200' cy='200' r='180' fill='%233a2a22'/%3E%3C/svg%3E" alt=""></div>
+           <div class="floating-tag tag-one"><strong>Recién hecha</strong>Mucho sabor en cada porción</div>
+           <div class="floating-tag tag-two"><strong>¿Ya elegiste?</strong>Tu próxima pizza te espera</div>
+         </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="wrap">
+<div class="section-head">
+           <div><div class="eyebrow">Probá todo</div><h2>Nuestro menú</h2></div>
+           <p>Pizzas, empanadas y algo para acompañar. Los precios y sabores están confirmados por el local. ¿Vos ya sabés qué querés pedir?</p>
+         </div>
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="todas">Todo</button>
+          <button class="filter" data-filter="pizzas">Pizzas</button>
+          <button class="filter" data-filter="empanadas">Empanadas</button>
+          <button class="filter" data-filter="bebidas">Bebidas</button>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="promo">
+          <div><h3>¿Ya sabés qué vas a pedir?</h3><p>Armá tu pedido y envialo al WhatsApp del local.</p></div>
+          <button class="btn" id="openCartPromo">Ver mi pedido <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M7 17l9-9"/><path d="M7 7h9v9"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="pedidos">
+      <div class="wrap">
+<div class="section-head">
+           <div><div class="eyebrow">Delivery o retiro</div><h2>Tu pedido, a tu manera</h2></div>
+           <p>Elegí delivery o retiro por el local. El pedido se prepara en WhatsApp para que puedas confirmar los detalles con el comercio.</p>
+         </div>
+<div class="info-grid">
+           <article class="info-card"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 9 22"/></svg></div><h3>Delivery</h3><p>Disfrutá tu pedido en casa. Consultá disponibilidad, zona y costo de envío al confirmar por WhatsApp.</p><a class="btn secondary" href="#menu">Armar pedido</a></article>
+           <article class="info-card"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div><h3>Retirá por el local</h3><p>Hacé tu pedido con anticipación y coordiná el horario de retiro directamente con el equipo.</p><a class="btn secondary" href="#ubicacion">Ver ubicación</a></article>
+         </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="ubicacion">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">Te esperamos en Junín</div><h2>Encontranos</h2></div><p>Pasá a visitarnos o consultá por delivery. La dirección se muestra como dato de referencia pendiente de validación final.</p></div>
+<div class="info-grid">
+           <article class="info-card"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Tío Charl'y</h3><p>Av. Intendente de la Sota 500, esquina Colombia<br>Junín, Buenos Aires</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tio+Charl%27y+Av.+Intendente+de+la+Sota+500+Junin+Buenos+Aires">Abrir Google Maps <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M7 17l9-9"/><path d="M7 7h9v9"/></svg></a></article>
+          <div class="map-placeholder"><div><img id="mapImage" src="" alt="Mapa de ubicación" style="width:100%;max-width:340px;border-radius:10px;margin-bottom:14px;opacity:.9"></div><strong>Av. Intendente de la Sota y Colombia</strong><br><small>Junín · Buenos Aires</small><br><br><a href="https://www.google.com/maps/search/?api=1&query=Tio+Charl%27y+Av.+Intendente+de+la+Sota+500+Junin+Buenos+Aires" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Ver cómo llegar</a></div>
+        </div>
+      </div>
+    </section>
+
+<section class="reviews" id="opiniones">
+       <div class="wrap">
+         <div class="section-head"><div><div class="eyebrow">Tu opinión</div><h2>¿Ya nos visitaste?</h2></div><p>Contanos cómo fue tu experiencia. Todas las personas pueden dejar su opinión, sea cual sea su valoración.</div></div>
+         <div class="reviews-list" id="reviewsList"></div>
+         <div class="review-card" style="margin-top:24px">
+           <div class="stars" aria-label="Cinco estrellas">★★★★★</div>
+           <h3>Dejanos tu reseña en Google</h3>
+           <p>Tu opinión ayuda a otras personas a conocer el local y nos permite seguir mejorando.</p>
+           <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tio+Charl%27y+Av.+Intendente+de+la+Sota+500+Junin+Buenos+Aires">Escribir una reseña <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M7 17l9-9"/><path d="M7 7h9v9"/></svg></a>
+           <div class="review-note">Este enlace es una búsqueda de Google Maps. Para producción, reemplazarlo por el enlace directo de reseñas del Perfil de Empresa verificado.</div>
+         </div>
+       </div>
+     </section>
+  </main>
+
+  <footer><div class="wrap footer-row"><a class="brand" href="#inicio"><span class="brand-mark">T</span><span>TÍO CHARL'Y<small>PIZZERÍA</small></span></a><span>© <span id="year"></span> Tío Charl'y · Propuesta de demostración no oficial.</span></div></footer>
+
+  <button class="btn cart-fab" id="openCart" aria-label="Abrir carrito">Mi pedido <span class="cart-count" id="cartCount">0</span></button>
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Tu pedido">
+    <aside class="cart-panel">
+      <div class="cart-head"><h2>Tu pedido</h2><button class="close" id="closeCart" aria-label="cerrar"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+      <div class="cart-items" id="cartItems"><p style="color:var(--muted)">Todavía no agregaste productos.</p></div>
+      <div class="cart-total"><span>Total estimado</span><span id="cartTotal">$0</span></div>
+      <label class="field">Nombre <input id="customerName" placeholder="¿Cómo te llamás?"></label>
+      <label class="field">Modalidad
+        <select id="orderType"><option value="Delivery">Delivery</option><option value="Retiro por el local">Retiro por el local</option></select>
+      </label>
+      <label class="field">Dirección (si es delivery) <input id="customerAddress" placeholder="Calle y número"></label>
+      <label class="field">Aclaraciones <textarea id="customerNote" rows="2" placeholder="Piso, departamento, sin aceitunas..."></textarea></label>
+      <button class="btn checkout" id="checkout">Enviar pedido por WhatsApp <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M7 17l9-9"/><path d="M7 7h9v9"/></svg></button>
+      <div class="notice">Demo: los productos y precios son ficticios. El número comercial de WhatsApp debe configurarse antes de publicar.</div>
+    </aside>
+  </div>
+
+<script src="config.js"></script>
+   <script>
+     const cart = new Map();
+     const money = n => new Intl.NumberFormat("es-AR",{style:"currency",currency:BUSINESS.currency,maximumFractionDigits:0}).format(n);
+     const grid = document.getElementById("menuGrid");
+     const overlay = document.getElementById("overlay");
+
+function renderProducts(filter="todas") {
+       grid.innerHTML = PRODUCTS.filter(p => filter==="todas" || p.category===filter).map(p => {
+         const hasImg = p.img && p.img.trim() !== "";
+         const modelClass = p.category === "pizzas" ? "pizza-3d" : p.category === "empanadas" ? "empanada-3d" : "drink-3d";
+         const imgHtml = hasImg
+           ? `<img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='<div class=\'model3d ${modelClass}\'><div class=\'base\'></div></div>'">`
+           : `<div class="model3d ${modelClass}"><div class="base"></div></div>`;
+         return `
+         <article class="food-card">
+           <div class="food-image" aria-hidden="true">${imgHtml}</div>
+           <div class="food-body">
+             <div class="food-top"><h3>${p.name}</h3><span class="price">${money(p.price)}</span></div>
+             <p>${p.description}</p>
+             <button class="add" data-add="${p.id}">+ Agregar al pedido</button>
+           </div>
+         </article>`;
+       }).join("");
+     }
+     function renderCart() {
+       const items = [...cart.entries()];
+       const count = items.reduce((sum,[,qty])=>sum+qty,0);
+       const total = items.reduce((sum,[id,qty])=>sum+PRODUCTS.find(p=>p.id===id).price*qty,0);
+       document.getElementById("cartCount").textContent=count;
+       document.getElementById("cartTotal").textContent=money(total);
+       document.getElementById("cartItems").innerHTML = items.length ? items.map(([id,qty])=>{
+         const p=PRODUCTS.find(x=>x.id===id);
+         return `<div class="cart-item"><div><strong>${p.name}</strong><small>${money(p.price)} c/u</small></div><div class="qty"><button data-dec="${id}" aria-label="Quitar uno">−</button><strong>${qty}</strong><button data-inc="${id}" aria-label=" agregar uno">+</button></div></div>`;
+       }).join("") : '<p style="color:var(--muted)">Todavía no agregaste productos.</p>';
+     }
+function renderReviews() {
+        const list = document.getElementById("reviewsList");
+        if(!list || !REVIEWS.length) return;
+        list.innerHTML = REVIEWS.map(r => `
+          <article class="review-card">
+            <div class="stars" aria-label="${r.stars} estrellas">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
+            <p>"${r.text}"</p>
+            <div class="review-author">
+              <div class="review-avatar">${r.name.charAt(0)}</div>
+              <div>
+                <div class="review-name">${r.name}</div>
+                <div class="review-date">${r.date}</div>
+              </div>
+            </div>
+          </article>`).join("");
+      }
+     function openCart(){overlay.classList.add("open");document.body.style.overflow="hidden";}
+     function closeCart(){overlay.classList.remove("open");document.body.style.overflow="";}
+     document.getElementById("filters").addEventListener("click",e=>{
+       const b=e.target.closest("[data-filter]"); if(!b)return;
+       document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b)); renderProducts(b.dataset.filter);
+     });
+     grid.addEventListener("click",e=>{
+       const b=e.target.closest("[data-add]"); if(!b)return;
+       const id=Number(b.dataset.add); cart.set(id,(cart.get(id)||0)+1); renderCart(); b.textContent="¡Agregado!"; setTimeout(()=>b.textContent="+ Agregar al pedido",850);
+     });
+     document.getElementById("cartItems").addEventListener("click",e=>{
+       const inc=e.target.closest("[data-inc]"), dec=e.target.closest("[data-dec]");
+       if(inc){const id=Number(inc.dataset.inc);cart.set(id,(cart.get(id)||0)+1);}
+       if(dec){const id=Number(dec.dataset.dec), next=(cart.get(id)||0)-1; if(next<=0)cart.delete(id);else cart.set(id,next);}
+       renderCart();
+     });
+     document.getElementById("openCart").addEventListener("click",openCart);
+     document.getElementById("openCartPromo").addEventListener("click",openCart);
+     document.getElementById("closeCart").addEventListener("click",closeCart);
+     overlay.addEventListener("click",e=>{if(e.target===overlay)closeCart();});
+     document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart();});
+     document.getElementById("checkout").addEventListener("click",()=>{
+       if(!cart.size){alert("Agregá al menos un producto antes de enviar el pedido.");return;}
+       if(BUSINESS.whatsapp==="5490000000000"){alert("Esta es una demostración. Configurá el WhatsApp comercial real antes de enviar pedidos.");return;}
+       const name=document.getElementById("customerName").value.trim()||"Sin nombre";
+       const type=document.getElementById("orderType").value;
+       const address=document.getElementById("customerAddress").value.trim();
+       const note=document.getElementById("customerNote").value.trim();
+       if(type==="Delivery"&&!address){alert("Ingresá tu dirección para el delivery.");return;}
+       const items=[...cart.entries()].map(([id,qty])=>{const p=PRODUCTS.find(x=>x.id===id);return `• ${qty} x ${p.name} — ${money(p.price*qty)}`;}).join("\n");
+       const total=[...cart.entries()].reduce((s,[id,q])=>s+PRODUCTS.find(p=>p.id===id).price*q,0);
+       const message=`¡Hola ${name}! Gracias por contactar a ${BUSINESS.name}. Quiero realizar un pedido:\n\n${items}\n\nTotal estimado: ${money(total)}\nModalidad: ${type}\n${address?`Dirección: ${address}\n`:""}${note?`Aclaraciones: ${note}\n`:""}\n¿Me confirman disponibilidad y tiempo de demora?`;
+       window.open(`https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(message)}`,"_blank","noopener");
+     });
+     document.getElementById("year").textContent=new Date().getFullYear();
+     // Cargar imágenes decorativas (hero y mapa) desde config.js
+     const heroImg = document.getElementById("heroPizzaImg");
+     const mapImg = document.getElementById("mapImage");
+     if(heroImg && IMAGES.hero) heroImg.src = IMAGES.hero;
+     if(mapImg && IMAGES.map) mapImg.src = IMAGES.map;
+     renderProducts(); renderCart(); renderReviews();
+   </script>
+</body>
+</html>
